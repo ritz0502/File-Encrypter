@@ -12,11 +12,13 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                echo "Building Java Project..."
+                echo "Building Java project..."
+                echo "Listing workspace contents:"
+                ls
                 cd "Password Protection"
                 mkdir -p build
                 javac -d build src/*.java
-                echo "Build Successful"
+                echo "Build successful"
                 '''
             }
         }
@@ -24,7 +26,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                echo "Running Tests..."
+                echo "Running tests..."
                 cd "Password Protection"
                 echo "No automated tests configured"
                 '''
@@ -34,8 +36,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                echo "Deploy Stage (Simulation)"
-                echo "Application Ready"
+                echo "Deploy stage (simulation)"
+                echo "Application ready for deployment"
                 '''
             }
         }
