@@ -1,7 +1,15 @@
 pipeline {
-    agent any
+    agent { label 'agent' }
 
     stages {
+
+	stage('Check Node') {
+            steps {
+                sh 'echo NODE_NAME=$NODE_NAME'
+                sh 'hostname'
+                sh 'whoami'
+            }
+	}
 
         stage('Clone Repository') {
             steps {
